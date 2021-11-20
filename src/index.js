@@ -48,6 +48,6 @@ export function ObjectIDPreview({ value }) {
   return <div>{value}</div>;
 }
 
-ObjectID.propTypes = {
+ObjectIDPreview.propTypes = {
   value: PropTypes.node,
 };
