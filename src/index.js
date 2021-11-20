@@ -14,20 +14,30 @@ export class ObjectIDControl extends React.Component {
       value,
       onChange,
       classNameWrapper,
+      setActiveStyle,
+      setInactiveStyle,
     } = this.props;
 
     return (
-      <div style={{ "display": "flex" }}>
+      <div style={{ "display": "flex" }} className={classNameWrapper} onFocus={setActiveStyle} onBlur={setInactiveStyle}>
         <input
           type="hidden"
           id={forID}
-          className={classNameWrapper}
           value={value || ObjectID().toHexString()}
           onChange={e => onChange(e.target.value.trim())}
         />
         <div>{value || ObjectID().toHexString()}</div>
-        <button onClick={() => {onChange(ObjectID().toHexString()) }} style={{ marginLeft: "1em" }} >Regenerate ID</button>
-      </div >
+        <div
+          style={{
+            "position": "absolute",
+            "right": "20px",
+            "width": "fit-content",
+            "z-index": "1"
+          }}
+        >
+          <button onClick={() => {onChange(ObjectID().toHexString()) }} >Regenerate ID</button>
+        </div>
+      </div>
     );
   }
 }
@@ -37,6 +47,8 @@ ObjectIDControl.propTypes = {
   forID: PropTypes.string,
   value: PropTypes.node,
   classNameWrapper: PropTypes.string.isRequired,
+  setActiveStyle: PropTypes.func.isRequired,
+  setInactiveStyle: PropTypes.func.isRequired,
 }
 
 ObjectIDControl.defaultProps = {
@@ -51,3 +63,11 @@ export function ObjectIDPreview({ value }) {
 ObjectIDPreview.propTypes = {
   value: PropTypes.node,
 };
+
+if (typeof window !== 'undefined') {
+  window.ObjectIDControl = ObjectIDControl;
+  window.ObjectIDPreview = ObjectIDPreview;
+}
+const exportObject = { ObjectIDControl, ObjectIDPreview };
+
+export default exportObject;

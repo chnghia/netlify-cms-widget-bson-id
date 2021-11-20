@@ -1,6 +1,6 @@
 {
   "name": "netlify-cms-widget-bson-id",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Generate a BSON ObjectID for NetlifyCMS",
   "repository": {
     "type": "git",

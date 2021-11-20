@@ -27,9 +27,9 @@ CMS.registerWidget('objectid', ObjectIDControl, ObjectIDPreview)
 
 Via `script` tag:
 ```html
-<script src="https://unpkg.com/netlify-cms-widget-bson-id@^0.0.1/dist/index.js"></script>
+<script src="https://unpkg.com/netlify-cms-widget-bson-id@^0.0.4/dist/index.js"></script>
 <script type="text/javascript">
-  CMS.registerWidget('objectid', objectidWidget.ObjectIDControl, objectidWidget.ObjectIDPreview)
+  CMS.registerWidget('objectid', ObjectIDControl, ObjectIDPreview)
 </script>
 ```
 
