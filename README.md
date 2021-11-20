@@ -11,25 +11,25 @@ As an npm package:
 
 1) Install the widget:
 ```
-npm i netlify-cms-widget-uuid-v4
+npm i netlify-cms-widget-bson-id
 ```
 
 2) Import the UUID widget in the netlifyCMS file:
 ```
-import {UuidControl, UuidPreview} from 'netlify-cms-widget-uuid-v4';
+import {ObjectIDControl, ObjectIDPreview} from 'netlify-cms-widget-bson-id';
 ```
 
 3) Register the widget ready for use:
 ```
-CMS.registerWidget('uuid', UuidControl, UuidPreview)
+CMS.registerWidget('objectid', ObjectIDControl, ObjectIDPreview)
 
 ```
 
 Via `script` tag:
 ```html
-<script src="https://unpkg.com/netlify-cms-widget-uuid-v4@^1.0.12/dist/index.js"></script>
+<script src="https://unpkg.com/netlify-cms-widget-bson-id@^0.0.1/dist/index.js"></script>
 <script type="text/javascript">
-  CMS.registerWidget('uuid', uuidWidget.UuidControl, uuidWidget.UuidPreview)
+  CMS.registerWidget('objectid', objectidWidget.ObjectIDControl, objectidWidget.ObjectIDPreview)
 </script>
 ```
 
@@ -45,5 +45,5 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "ID", name: "id", widget: "uuid"}
+      - {label: "ID", name: "id", widget: "objectid"}
 ```

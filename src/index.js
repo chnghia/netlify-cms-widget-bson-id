@@ -1,8 +1,8 @@
-import { v4 } from 'uuid';
 import PropTypes from 'prop-types';
 import React from 'react';
+import * as ObjectID from 'bson-objectid';
 
-export class UuidControl extends React.Component {
+export class ObjectIDControl extends React.Component {
 
   handleRegenerate(){
 
@@ -22,32 +22,32 @@ export class UuidControl extends React.Component {
           type="hidden"
           id={forID}
           className={classNameWrapper}
-          value={value || v4()}
+          value={value || ObjectID().toHexString()}
           onChange={e => onChange(e.target.value.trim())}
         />
-        <div>{value || v4()}</div>
-        <button onClick={() => {onChange(v4()) }} style={{ marginLeft: "1em" }} >Regenerate ID</button>
+        <div>{value || ObjectID().toHexString()}</div>
+        <button onClick={() => {onChange(ObjectID().toHexString()) }} style={{ marginLeft: "1em" }} >Regenerate ID</button>
       </div >
     );
   }
 }
 
-UuidControl.propTypes = {
+ObjectIDControl.propTypes = {
   onChange: PropTypes.func.isRequired,
   forID: PropTypes.string,
   value: PropTypes.node,
   classNameWrapper: PropTypes.string.isRequired,
 }
 
-UuidControl.defaultProps = {
+ObjectIDControl.defaultProps = {
   value: '',
 }
 
 
-export function UuidPreview({ value }) {
+export function ObjectIDPreview({ value }) {
   return <div>{value}</div>;
 }
 
-UuidPreview.propTypes = {
+ObjectID.propTypes = {
   value: PropTypes.node,
 };
